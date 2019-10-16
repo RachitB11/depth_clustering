@@ -30,19 +30,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 include(CTest)
-IF(IS_DIRECTORY "/usr/src/gtest/")
-  MESSAGE(STATUS "Found google test sources in /usr/src/gtest/")
 
-  ADD_SUBDIRECTORY(/usr/src/gtest/ gtest)
-
-  # mimick the behaviour of find_package(GTest)
-  SET(GTEST_FOUND TRUE)
-  SET(GTEST_BOTH_LIBRARIES gtest gtest_main)
-  SET(GTEST_LIBRARIES gtest)
-  SET(GTEST_MAIN_LIBRARIES gtest_main)
-ELSE()
-  find_package(GTest)
-ENDIF()
+find_package(GTest)
 
 set(Boost_USE_STATIC_LIBS OFF)
 
